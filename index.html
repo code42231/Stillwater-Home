@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stillwater Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Header/Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #005f73;
+        padding: 15px 40px;
+        color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .navbar nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s;
+      }
+
+      .navbar nav a:hover {
+        color: #94d2bd;
+      }
+
+      .phone {
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #0a9396 0%, #005f73 100%);
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        opacity: 0.95;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        background: #94d2bd;
+        color: #001219;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background: #b8e0d2;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 20px;
+      }
+
+      /* About Section */
+      .about {
+        background: #f8f9fa;
+      }
+
+      .about h2 {
+        color: #005f73;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .about h3 {
+        color: #0a9396;
+        font-size: 1.5rem;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      .about p {
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      .about ul {
+        margin-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      .about li {
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      /* Services Section */
+      .services {
+        text-align: center;
+      }
+
+      .services h2 {
+        color: #005f73;
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .card {
+        background: white;
+        border: 2px solid #94d2bd;
+        padding: 30px 20px;
+        border-radius: 8px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 95, 115, 0.2);
+      }
+
+      /* Contact Section */
+      .contact {
+        background: #f8f9fa;
+      }
+
+      .contact h2 {
+        color: #005f73;
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+
+      .contact .container h3 {
+        color: #005f73;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+      .contact-form {
+        max-width: 600px;
+        margin: auto;
+        text-align: left;
+      }
+
+      .contact-form label {
+        display: block;
+        margin: 15px 0 5px;
+        color: #005f73;
+        font-weight: bold;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #94d2bd;
+        border-radius: 5px;
+        font-family: inherit;
+      }
+
+      .contact-form button {
+        background: #005f73;
+        color: white;
+        border: none;
+        padding: 14px 32px;
+        margin: 20px 0;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .contact-form button:hover {
+        background: #0a9396;
+      }
+
+      .contact-info {
+        margin: 30px 0;
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      .contact ul {
+        margin-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      .contact p{
+        margin-bottom: 15px;
+      }
+
+      .contact li {
+        margin-bottom: 8px;
+        color: #555;
+      }
+
+      /* Footer */
+      footer {
+        background: #001219;
+        color: #94d2bd;
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      footer p {
+        margin: 5px 0;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          padding: 15px 20px;
+        }
+
+        .navbar nav {
+          margin: 10px 0;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Stillwater Home</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#placement">Placement</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <!-- <div class="phone">587-703-7242</div> -->
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Compassionate Care for Your Loved Ones</h1>
+        <p>
+          Providing trauma-informed, client-centered support for children and
+          youth with developmental disabilities
+        </p>
+        <a href="#contact" class="btn">Get In Touch</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About Stillwater Home</h2>
+        <p>
+          Stillwater Home provides specialized, person-centred residential
+          supports for adults with developmental disabilities and co-occurring
+          mental health challenges. We operate community-based homes in Alberta
+          and the Northwest Territories, delivering care that prioritizes
+          dignity, safety, cultural respect, and quality of life.
+        </p>
+        <p>
+          Our services are designed for individuals who benefit from structured,
+          supportive environments grounded in trauma-informed practice, positive
+          behaviour support, and interdisciplinary clinical oversight. We work
+          collaboratively with individuals, families, guardians, clinicians, and
+          funding partners to support stability, independence, and meaningful
+          community inclusion.
+        </p>
+
+        <h3>Our Mission</h3>
+        <p>
+          To provide safe, supportive, and person-centred residential services
+          that promote stability, independence, and meaningful community
+          inclusion for adults with developmental disabilities and mental health
+          needs.
+        </p>
+
+        <h3>Our Vision</h3>
+        <p>
+          A future where individuals with complex needs are respected,
+          empowered, and supported to live meaningful lives with dignity in
+          their communities.
+        </p>
+
+        <h3>Our Values</h3>
+        <ul>
+          <li>
+            <strong>Dignity and Respect</strong> - Every person is treated with
+            inherent worth, regardless of ability or diagnosis.
+          </li>
+          <li>
+            <strong>Person-Centred Care</strong> – Individuals are at the centre
+            of all decisions affecting their lives.
+          </li>
+          <li>
+            <strong>Safety and Accountability:</strong> – We uphold high
+            standards of care, transparency, and regulatory compliance.
+          </li>
+          <li>
+            <strong>Compassion and Empathy</strong> – We provide
+            trauma-informed, respectful, and responsive support.
+          </li>
+          <li>
+            <strong>Collaboration and Partnership</strong> – Meaningful outcomes
+            are achieved through teamwork with families, professionals, and
+            communities.
+          </li>
+          <li>
+            <strong>Growth and Empowerment</strong> – We support skill
+            development, resilience, and personal growth.
+          </li>
+          <li>
+            <strong>Continuous Improvement</strong>– We use evidence, feedback,
+            and outcomes to strengthen our services.
+          </li>
+        </ul>
+
+        <h3>Quality, Ethics, and Accountability</h3>
+        <p>
+          Stillwater Home operates in compliance with Alberta’s Persons with
+          Developmental Disabilities (PDD) Program, Northwest Territories Health
+          and Social Services standards, and all applicable legislation. We
+          align our services with CARF International standards and are committed
+          to ethical governance, cultural safety, and continuous quality
+          improvement.
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <h2>Our Services & Training</h2>
+        <div class="grid">
+          <div class="card">Personal Care Assistance</div>
+          <div class="card">Trauma Informed Care</div>
+          <div class="card">Individual Support Planning</div>
+          <div class="card">Behaviour Support</div>
+          <div class="card">Medication Administration</div>
+          <div class="card">Crisis Intervention</div>
+          <div class="card">Substance Use and Harm Reduction</div>
+          <div class="card">Community Inclusion and Integration</div>
+          <div class="card">Indigenous Awareness</div>
+          <div class="card">Cultural Training</div>
+        </div>
+
+        <h3 style="margin-top: 50px; color: #005f73">
+          Licensing & Accreditation
+        </h3>
+        <p style="margin-top: 20px; color: #555">
+          <strong>House 1:</strong> Licensed since 2026, ACDS accredited since
+          2026 (Capacity: 4)<br />
+        </p>
+      </div>
+    </section>
+
+    <section id="placement" class="about">
+      <div class="container">
+        <h2>Placement & Referrals</h2>
+        <p>
+          Stillwater Home offers residential placements for adults (18 years and
+          older) with a documented developmental disability and a co-occurring
+          mental health diagnosis (dual diagnosis).
+        </p>
+
+        <h3>Eligibility</h3>
+        <p>Placements may be considered for individuals who:</p>
+        <ul>
+          <li>
+            Are eligible for funding through Alberta PDD or AHS Mental Health or
+            Northwest Territories Health and Social Services
+          </li>
+          <li>Benefit from a structured, staffed residential environment</li>
+          <li>
+            Require support with daily living, emotional regulation, behaviour
+            support, and community participation
+          </li>
+        </ul>
+
+        <h3>Admissions Procedure</h3>
+        <p>
+          All placements follow a formal intake and assessment process that
+          includes:
+        </p>
+
+        <ul>
+          <li>Review of clinical, behavioural, and medical history</li>
+          <li>Assessment of support needs, risks, and environmental fit</li>
+          <li>Interdisciplinary team consultation</li>
+          <li>Confirmation of funding authorization</li>
+        </ul>
+        <p>
+          Placement decisions are made collaboratively and emphasize informed
+          consent, person-centred planning, and long-term stability.
+        </p>
+
+        <h3>Service Limitations</h3>
+        <p>Admission may not be appropriate if:</p>
+        <ul>
+          <li>
+            The individual requires 24-hour intensive medical or nursing care
+            beyond the scope of residential services
+          </li>
+          <li>
+            Support needs present an unmanageable risk to the individual or
+            others
+          </li>
+          <li>Required funding authorization is not in place</li>
+        </ul>
+
+        <h3>Transitions and Planning</h3>
+        <p>
+          Transition planning begins at admission and is reviewed regularly.
+          Discharges or transitions are coordinated collaboratively to ensure
+          continuity of care and respectful, supported change.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>
+          We welcome inquiries from funding partners, guardians, service
+          coordinators, and community stakeholders.
+        </p>
+        <h3>Important Notice</h3>
+        <p>
+          This contact page is not monitored for emergencies. If you are
+          experiencing an emergency or immediate safety concern, please call 911
+          or your local emergency services.
+        </p>
+        <h3>Privacy Notice</h3>
+        <p>
+          To protect privacy, please do not include sensitive personal or health
+          information in your message. All inquiries are handled in accordance
+          with applicable privacy legislation, including the Freedom of
+          Information and Protection of Privacy (FOIP) Act in Alberta and the
+          Access to Information and Protection of Privacy (ATIPP) Act in the
+          Northwest Territories.
+        </p>
+        <h3>Contact Topics</h3>
+        <p>
+            You may contact us regarding:
+        </p>
+        
+        <ul>
+          <li>General inquiries and service information</li>
+          <li>Referrals and placement questions</li>
+          <li>Privacy or records requests</li>
+          <li>Complaints or concerns</li>
+        </ul>
+   
+        <p>
+          The Executive Director serves as Stillwater Home’s designated Privacy
+          Officer.
+        </p>
+        <div class="contact-info">
+          <p><strong>Email:</strong> info@stillwaterhome.ca</p>
+          <!-- <p><strong>Phone:</strong> 587-703-7242</p> -->
+        </div>
+
+        <form class="contact-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+ 
+      
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 Stillwater Home. All rights reserved.</p>
+        <p>
+          Stillwater Home Providing person-centred residential services for
+          adults with developmental disabilities and co-occurring mental health
+          needs in Alberta and the Northwest Territories. Stillwater Home is
+          committed to protecting personal and health information in accordance
+          with applicable privacy legislation. We uphold the rights, dignity,
+          cultural identity, and safety of all persons served. We maintain an
+          accessible complaints and grievance process and are committed to
+          ethical, accountable, and transparent service delivery.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
